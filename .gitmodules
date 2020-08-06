@@ -1,0 +1,6 @@
+[submodule "frappe"]
+	path = frappe
+	url = ./apps/frappe
+[submodule "erpnext"]
+	path = erpnext
+	url = ./apps/erpnext
