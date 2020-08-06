@@ -1,0 +1,17 @@
+2020-08-03 19:04:43,145 INFO scheduler Scheduled Job Complete: erpnext.crm.doctype.social_media_post.social_media_post.process_scheduled_social_media_posts for erpnext_dev
+2020-08-03 19:04:43,310 INFO scheduler Scheduled Job Start: erpnext.healthcare.doctype.patient_appointment.patient_appointment.send_appointment_reminder for erpnext_dev
+2020-08-03 19:04:43,483 INFO scheduler Scheduled Job Complete: erpnext.healthcare.doctype.patient_appointment.patient_appointment.send_appointment_reminder for erpnext_dev
+2020-08-03 19:04:43,535 INFO scheduler Scheduled Job Start: erpnext.projects.doctype.project.project.project_status_update_reminder for erpnext_dev
+2020-08-03 19:04:43,672 INFO scheduler Scheduled Job Complete: erpnext.projects.doctype.project.project.project_status_update_reminder for erpnext_dev
+2020-08-03 19:04:43,726 INFO scheduler Scheduled Job Start: frappe.monitor.flush for erpnext_dev
+2020-08-03 19:04:43,816 INFO scheduler Scheduled Job Complete: frappe.monitor.flush for erpnext_dev
+2020-08-03 19:04:43,865 INFO scheduler Scheduled Job Start: frappe.utils.global_search.sync_global_search for erpnext_dev
+2020-08-03 19:04:43,959 INFO scheduler Scheduled Job Complete: frappe.utils.global_search.sync_global_search for erpnext_dev
+2020-08-03 19:04:44,020 INFO scheduler Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for erpnext_dev
+2020-08-03 19:04:44,127 INFO scheduler Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for erpnext_dev
+2020-08-03 19:04:44,175 INFO scheduler Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for erpnext_dev
+2020-08-03 19:04:44,305 INFO scheduler Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for erpnext_dev
+2020-08-03 19:04:44,355 INFO scheduler Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for erpnext_dev
+2020-08-03 19:04:44,509 INFO scheduler Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for erpnext_dev
+2020-08-03 19:04:44,559 INFO scheduler Scheduled Job Start: frappe.email.queue.flush for erpnext_dev
+2020-08-03 19:04:44,696 INFO scheduler Scheduled Job Complete: frappe.email.queue.flush for erpnext_dev

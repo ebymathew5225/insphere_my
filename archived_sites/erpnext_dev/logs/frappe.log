@@ -1,0 +1,33 @@
+2020-07-16 17:12:56,884 ERROR frappe New Exception collected with id: 2020-07-16 17:12:56.399511-127.0.0.1-d63
+Site: erpnext_dev
+Form Dict: {'cmd': 'frappe.realtime.get_user_info'}
+2020-07-16 17:12:56,884 ERROR frappe New Exception collected with id: 2020-07-16 17:12:56.399511-127.0.0.1-d63
+Site: erpnext_dev
+Form Dict: {'cmd': 'frappe.realtime.get_user_info'}
+2020-07-16 17:12:56,884 ERROR frappe New Exception collected with id: 2020-07-16 17:12:56.401846-127.0.0.1-b75
+Site: erpnext_dev
+Form Dict: {'cmd': 'frappe.realtime.get_user_info'}
+2020-07-16 17:12:56,884 ERROR frappe New Exception collected with id: 2020-07-16 17:12:56.401846-127.0.0.1-b75
+Site: erpnext_dev
+Form Dict: {'cmd': 'frappe.realtime.get_user_info'}
+2020-07-17 14:07:31,614 ERROR frappe New Exception collected with id: 2020-07-17 14:07:31.457428-127.0.0.1-485
+Site: erpnext_dev
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Module Def","name":"New Module Def 1","__islocal":1,"__unsaved":1,"owner":"Administrator","module_name":"Extracurricular Activities","app_name":"Extracurricular Activities"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2020-07-17 14:07:45,361 ERROR frappe New Exception collected with id: 2020-07-17 14:07:45.338001-127.0.0.1-d4c
+Site: erpnext_dev
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Module Def","name":"New Module Def 1","__islocal":1,"__unsaved":1,"owner":"Administrator","module_name":"Extracurricular Activities","app_name":"Extracurricular Activities"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2020-07-17 14:07:45,361 ERROR frappe New Exception collected with id: 2020-07-17 14:07:45.338001-127.0.0.1-d4c
+Site: erpnext_dev
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Module Def","name":"New Module Def 1","__islocal":1,"__unsaved":1,"owner":"Administrator","module_name":"Extracurricular Activities","app_name":"Extracurricular Activities"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2020-07-17 14:09:28,884 ERROR frappe New Exception collected with id: 2020-07-17 14:09:28.850826-127.0.0.1-ccf
+Site: erpnext_dev
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Module Def","name":"New Module Def 2","__islocal":1,"__unsaved":1,"owner":"Administrator","__run_link_triggers":1,"module_name":"aplliiii","app_name":"ddda"}', 'cmd': 'frappe.client.save'}
+2020-07-17 14:09:28,884 ERROR frappe New Exception collected with id: 2020-07-17 14:09:28.850826-127.0.0.1-ccf
+Site: erpnext_dev
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Module Def","name":"New Module Def 2","__islocal":1,"__unsaved":1,"owner":"Administrator","__run_link_triggers":1,"module_name":"aplliiii","app_name":"ddda"}', 'cmd': 'frappe.client.save'}
+2020-07-17 14:09:28,884 ERROR frappe New Exception collected with id: 2020-07-17 14:09:28.850826-127.0.0.1-ccf
+Site: erpnext_dev
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Module Def","name":"New Module Def 2","__islocal":1,"__unsaved":1,"owner":"Administrator","__run_link_triggers":1,"module_name":"aplliiii","app_name":"ddda"}', 'cmd': 'frappe.client.save'}
+2020-07-20 11:29:37,874 ERROR frappe New Exception collected with id: 2020-07-20 11:29:37.724073-127.0.0.1-222
+Site: erpnext_dev
+Form Dict: {'cmd': 'frappe.realtime.get_user_info'}

@@ -1,0 +1,7 @@
+2020-08-04 08:24:25,000 INFO scheduler Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for erpnext_dev
+2020-08-04 08:24:25,141 INFO scheduler Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for erpnext_dev
+2020-08-04 08:24:25,289 INFO scheduler Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for erpnext_dev
+2020-08-04 08:24:25,339 INFO scheduler Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for erpnext_dev
+2020-08-04 08:24:25,485 INFO scheduler Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for erpnext_dev
+2020-08-04 08:24:25,535 INFO scheduler Scheduled Job Start: frappe.email.queue.flush for erpnext_dev
+2020-08-04 08:24:25,662 INFO scheduler Scheduled Job Complete: frappe.email.queue.flush for erpnext_dev

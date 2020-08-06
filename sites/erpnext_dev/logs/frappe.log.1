@@ -1,0 +1,488 @@
+2020-08-01 10:43:37,023 ERROR frappe Could not take error snapshot: (1045, "Access denied for user '_faa3735edf87bd2f'@'localhost' (using password: YES)")
+Site: erpnext_dev
+Form Dict: {'doctype': 'Item', 'filters': '{"disabled":0}', 'fields': '["count( `tabItem`.`name`) AS total_count"]'}
+Traceback (most recent call last):
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/app.py", line 136, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 51, in __init__
+    frappe.local.login_manager = LoginManager()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 113, in __init__
+    self.make_session(resume=True)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 194, in make_session
+    full_name=self.full_name, user_type=self.user_type)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/sessions.py", line 197, in __init__
+    self.resume()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/sessions.py", line 264, in resume
+    validate_ip_address(self.user)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 413, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 728, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 771, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 71, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 135, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/base_document.py", line 78, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 796, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 83, in __init__
+    super(Meta, self).__init__("DocType", doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 88, in load_from_db
+    super(Meta, self).load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 147, in load_from_db
+    d = frappe.db.get_value(self.doctype, self.name, "*", as_dict=1)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 408, in get_value
+    order_by, cache=cache)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 452, in get_values
+    out = self._get_values_from_table(fields, filters, doctype, as_dict, debug, order_by, update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 599, in _get_values_from_table
+    as_dict=as_dict, debug=debug, update=update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 122, in sql
+    self.connect()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 75, in connect
+    self._conn = self.get_connection()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/mariadb/database.py", line 91, in get_connection
+    local_infile = frappe.conf.local_infile)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 325, in __init__
+    self.connect()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 599, in connect
+    self._request_authentication()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 861, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user '_faa3735edf87bd2f'@'localhost' (using password: YES)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/utils/error.py", line 92, in get_snapshot
+    vars = cgitb.scanvars(reader, frame, locals)
+  File "/usr/lib/python3.6/cgitb.py", line 88, in scanvars
+    value = getattr(parent, token, __UNDEF__)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/base_document.py", line 78, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 796, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 83, in __init__
+    super(Meta, self).__init__("DocType", doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 88, in load_from_db
+    super(Meta, self).load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 147, in load_from_db
+    d = frappe.db.get_value(self.doctype, self.name, "*", as_dict=1)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 408, in get_value
+    order_by, cache=cache)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 452, in get_values
+    out = self._get_values_from_table(fields, filters, doctype, as_dict, debug, order_by, update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 599, in _get_values_from_table
+    as_dict=as_dict, debug=debug, update=update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 122, in sql
+    self.connect()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 75, in connect
+    self._conn = self.get_connection()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/mariadb/database.py", line 91, in get_connection
+    local_infile = frappe.conf.local_infile)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 325, in __init__
+    self.connect()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 599, in connect
+    self._request_authentication()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 861, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user '_faa3735edf87bd2f'@'localhost' (using password: YES)")
+2020-08-01 10:43:37,037 ERROR frappe Could not take error snapshot: (1045, "Access denied for user '_faa3735edf87bd2f'@'localhost' (using password: YES)")
+Site: erpnext_dev
+Form Dict: {'doctype': 'Material Request', 'filters': '{"company":["like","%insphere%"],"status":"Pending"}', 'fields': '["count( `tabMaterial Request`.`name`) AS total_count"]'}
+Traceback (most recent call last):
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/app.py", line 136, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 51, in __init__
+    frappe.local.login_manager = LoginManager()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 113, in __init__
+    self.make_session(resume=True)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 194, in make_session
+    full_name=self.full_name, user_type=self.user_type)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/sessions.py", line 197, in __init__
+    self.resume()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/sessions.py", line 264, in resume
+    validate_ip_address(self.user)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 413, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 728, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 771, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 71, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 135, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/base_document.py", line 78, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 796, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 83, in __init__
+    super(Meta, self).__init__("DocType", doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 88, in load_from_db
+    super(Meta, self).load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 147, in load_from_db
+    d = frappe.db.get_value(self.doctype, self.name, "*", as_dict=1)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 408, in get_value
+    order_by, cache=cache)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 452, in get_values
+    out = self._get_values_from_table(fields, filters, doctype, as_dict, debug, order_by, update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 599, in _get_values_from_table
+    as_dict=as_dict, debug=debug, update=update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 122, in sql
+    self.connect()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 75, in connect
+    self._conn = self.get_connection()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/mariadb/database.py", line 91, in get_connection
+    local_infile = frappe.conf.local_infile)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 325, in __init__
+    self.connect()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 599, in connect
+    self._request_authentication()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 861, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user '_faa3735edf87bd2f'@'localhost' (using password: YES)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/utils/error.py", line 92, in get_snapshot
+    vars = cgitb.scanvars(reader, frame, locals)
+  File "/usr/lib/python3.6/cgitb.py", line 88, in scanvars
+    value = getattr(parent, token, __UNDEF__)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/base_document.py", line 78, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 796, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 83, in __init__
+    super(Meta, self).__init__("DocType", doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 88, in load_from_db
+    super(Meta, self).load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 147, in load_from_db
+    d = frappe.db.get_value(self.doctype, self.name, "*", as_dict=1)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 408, in get_value
+    order_by, cache=cache)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 452, in get_values
+    out = self._get_values_from_table(fields, filters, doctype, as_dict, debug, order_by, update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 599, in _get_values_from_table
+    as_dict=as_dict, debug=debug, update=update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 122, in sql
+    self.connect()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 75, in connect
+    self._conn = self.get_connection()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/mariadb/database.py", line 91, in get_connection
+    local_infile = frappe.conf.local_infile)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 325, in __init__
+    self.connect()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 599, in connect
+    self._request_authentication()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 861, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user '_faa3735edf87bd2f'@'localhost' (using password: YES)")
+2020-08-01 10:43:37,038 ERROR frappe Could not take error snapshot: (1045, "Access denied for user '_faa3735edf87bd2f'@'localhost' (using password: YES)")
+Site: erpnext_dev
+Form Dict: {'doctype': 'Delivery Note', 'filters': '{"company":["like","%insphere%"],"status":"To Bill"}', 'fields': '["count( `tabDelivery Note`.`name`) AS total_count"]'}
+Traceback (most recent call last):
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/app.py", line 136, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 51, in __init__
+    frappe.local.login_manager = LoginManager()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 113, in __init__
+    self.make_session(resume=True)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 194, in make_session
+    full_name=self.full_name, user_type=self.user_type)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/sessions.py", line 197, in __init__
+    self.resume()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/sessions.py", line 264, in resume
+    validate_ip_address(self.user)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 413, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 728, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 771, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 71, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 135, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/base_document.py", line 78, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 796, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 83, in __init__
+    super(Meta, self).__init__("DocType", doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 88, in load_from_db
+    super(Meta, self).load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 147, in load_from_db
+    d = frappe.db.get_value(self.doctype, self.name, "*", as_dict=1)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 408, in get_value
+    order_by, cache=cache)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 452, in get_values
+    out = self._get_values_from_table(fields, filters, doctype, as_dict, debug, order_by, update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 599, in _get_values_from_table
+    as_dict=as_dict, debug=debug, update=update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 122, in sql
+    self.connect()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 75, in connect
+    self._conn = self.get_connection()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/mariadb/database.py", line 91, in get_connection
+    local_infile = frappe.conf.local_infile)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 325, in __init__
+    self.connect()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 599, in connect
+    self._request_authentication()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 861, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user '_faa3735edf87bd2f'@'localhost' (using password: YES)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/utils/error.py", line 92, in get_snapshot
+    vars = cgitb.scanvars(reader, frame, locals)
+  File "/usr/lib/python3.6/cgitb.py", line 88, in scanvars
+    value = getattr(parent, token, __UNDEF__)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/base_document.py", line 78, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 796, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 83, in __init__
+    super(Meta, self).__init__("DocType", doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 88, in load_from_db
+    super(Meta, self).load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 147, in load_from_db
+    d = frappe.db.get_value(self.doctype, self.name, "*", as_dict=1)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 408, in get_value
+    order_by, cache=cache)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 452, in get_values
+    out = self._get_values_from_table(fields, filters, doctype, as_dict, debug, order_by, update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 599, in _get_values_from_table
+    as_dict=as_dict, debug=debug, update=update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 122, in sql
+    self.connect()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 75, in connect
+    self._conn = self.get_connection()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/mariadb/database.py", line 91, in get_connection
+    local_infile = frappe.conf.local_infile)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 325, in __init__
+    self.connect()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 599, in connect
+    self._request_authentication()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 861, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user '_faa3735edf87bd2f'@'localhost' (using password: YES)")
+2020-08-01 10:43:47,503 ERROR frappe Could not take error snapshot: (1045, "Access denied for user '_faa3735edf87bd2f'@'localhost' (using password: YES)")
+Site: erpnext_dev
+Form Dict: {'doctype': 'Route History', 'records': '[{"user":"Administrator","creation":"2020-08-01 10:43:36","route":"workspace/Stock"}]'}
+Traceback (most recent call last):
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/app.py", line 136, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 51, in __init__
+    frappe.local.login_manager = LoginManager()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 113, in __init__
+    self.make_session(resume=True)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 194, in make_session
+    full_name=self.full_name, user_type=self.user_type)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/sessions.py", line 197, in __init__
+    self.resume()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/sessions.py", line 264, in resume
+    validate_ip_address(self.user)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/auth.py", line 413, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 728, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 771, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 71, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 135, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/base_document.py", line 78, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 796, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 83, in __init__
+    super(Meta, self).__init__("DocType", doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 88, in load_from_db
+    super(Meta, self).load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 147, in load_from_db
+    d = frappe.db.get_value(self.doctype, self.name, "*", as_dict=1)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 408, in get_value
+    order_by, cache=cache)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 452, in get_values
+    out = self._get_values_from_table(fields, filters, doctype, as_dict, debug, order_by, update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 599, in _get_values_from_table
+    as_dict=as_dict, debug=debug, update=update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 122, in sql
+    self.connect()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 75, in connect
+    self._conn = self.get_connection()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/mariadb/database.py", line 91, in get_connection
+    local_infile = frappe.conf.local_infile)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 325, in __init__
+    self.connect()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 599, in connect
+    self._request_authentication()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 861, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user '_faa3735edf87bd2f'@'localhost' (using password: YES)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/utils/error.py", line 92, in get_snapshot
+    vars = cgitb.scanvars(reader, frame, locals)
+  File "/usr/lib/python3.6/cgitb.py", line 88, in scanvars
+    value = getattr(parent, token, __UNDEF__)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/base_document.py", line 78, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/__init__.py", line 796, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 83, in __init__
+    super(Meta, self).__init__("DocType", doctype)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/meta.py", line 88, in load_from_db
+    super(Meta, self).load_from_db()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/model/document.py", line 147, in load_from_db
+    d = frappe.db.get_value(self.doctype, self.name, "*", as_dict=1)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 408, in get_value
+    order_by, cache=cache)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 452, in get_values
+    out = self._get_values_from_table(fields, filters, doctype, as_dict, debug, order_by, update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 599, in _get_values_from_table
+    as_dict=as_dict, debug=debug, update=update)
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 122, in sql
+    self.connect()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/database.py", line 75, in connect
+    self._conn = self.get_connection()
+  File "/home/frappe01/ERPNext/apps/frappe/frappe/database/mariadb/database.py", line 91, in get_connection
+    local_infile = frappe.conf.local_infile)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 325, in __init__
+    self.connect()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 599, in connect
+    self._request_authentication()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 861, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/frappe01/ERPNext/env/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user '_faa3735edf87bd2f'@'localhost' (using password: YES)")
